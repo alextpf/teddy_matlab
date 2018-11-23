@@ -4,7 +4,10 @@ function [ chords, newTri, verts, entryRow,entryCol, chordSpine ] = constructCho
 % Construct Chordal axis
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % debug flags:
-    DRAW_THREE_KINDS_TRI =  DEBUG; % draw 3 kinds of triangle: terminal (Blue), junction (Red), sleeve (White)    
+    % draw 3 kinds of triangle: terminal (Blue), junction (Red), sleeve (White). 
+    % Use this flag to check if the 1st step of classifying the triangle
+    % correctly
+    DRAW_THREE_KINDS_TRI =  DEBUG;
     DEBUG_DRAW_CIRCLE =     DEBUG; % debug flag: draw circles
     DEBUG_DRAW_CHORD =      DEBUG; % debug flag: draw chrodal axis
     DRAW_CURR_JUN_TRI =     DEBUG;
@@ -16,13 +19,16 @@ function [ chords, newTri, verts, entryRow,entryCol, chordSpine ] = constructCho
     FILL_TRIANGLUES =       DEBUG; % check if every triangles is filled
     DEBUG_CHECK_GRAPH =     DEBUG;
     DEBUG_DRAW_VERT_LABEL = DEBUG;
+    TO_PRESENT =            DEBUG; % use to generate fancy picture only
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Find 3 kinds of tris: 
 % a. terminal tri, b. sleeve tri, c. junction tri
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 numVert = size ( verts, 1 );
-% a data structure: N x 3. for each row (x,y,z), if x == 1 or x == numVert - 2: is an outer edge between vert 1 and vert 2, if y == 1: vert2 & vert 3, if z == 1: vert 1 & vert 3
+
+% a data structure: N x 3. 
+% based on the observation of Delaunay Triangulation, for each row (x,y,z), if x == 1 or x == numVert - 2: is an outer edge between vert 1 and vert 2, if y == 1: vert2 & vert 3, if z == 1: vert 1 & vert 3
 triDif = abs ( [ tri(:,1)-tri(:,2), tri(:,2)-tri(:,3), tri(:,1)-tri(:,3) ] );
 triDif ( triDif ~= 1 & triDif ~= numVert - 2 ) = 0;
 triDif ( triDif ~= 0 ) = 1;
@@ -46,6 +52,7 @@ terTri = tri ( terTriIdx, : );
 if (DRAW_THREE_KINDS_TRI)
     figure;
     triplot( tri,verts(:,1),verts(:,2),'b');
+    title('Triangle Classifycation: terminal (Blue), junction (Red), sleeve (White)');
     hold on;
     axis equal;
     
@@ -81,7 +88,15 @@ terTriEdge = triDif ( terTriIdx, : );
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 1st pass: start from terminal tri
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-hold on;
+if (DEBUG_DRAW_VERT_LABEL | DEBUG_DRAW_NEW_TRI | DEBUG_DRAW_VERT_LABEL )
+    figure;
+    hold on;
+    triplot( tri,verts(:,1),verts(:,2),'k');
+    title('debug use');
+    hold on;
+    axis equal;
+end
+
 for i = 1:size ( terTri, 1 )
     % allocat space for a polygon
     % start from the tip of a terminal tri
@@ -841,7 +856,7 @@ end % for i = 1:size ( terTri, 1 ); for each terminal triangle
 
 % Sanity check:
 if ( size(sleTri,1) > 0 )
-    test('error');
+    test(' % Sanity check: "size(sleTri,1) > 0" ');
     return;
 end
 
@@ -975,7 +990,7 @@ if (DRAW_CHORDAL_AXIS)
     % draw chordal axis on a separate figure
 
     figure;
-    triplot(tri,verts(:,1),verts(:,2),'c');
+    triplot(tri,verts(:,1),verts(:,2),'g');
     axis equal;
 
     hold on;
@@ -991,13 +1006,13 @@ if (DRAW_CHORDAL_AXIS)
             plot(prunedChord(:,1),prunedChord(:,2),'b', 'LineWidth', 2);
         end
     end
-
-    for i=1:size(verts,1)
-       str = sprintf ('%d',i);
-       x = verts(i,1);
-       y = verts(i,2);
-       text(x,y,str);
-    end 
+% 
+%     for i=1:size(verts,1)
+%        str = sprintf ('%d',i);
+%        x = verts(i,1);
+%        y = verts(i,2);
+%        text(x,y,str);
+%     end 
 end % if (DRAW_CHORDAL_AXIS)
 
 if ( DRAW_NEW_TRI )
@@ -1036,5 +1051,46 @@ if (DEBUG_CHECK_GRAPH)
         id2 = chordSpine (entryCol(i));
         pt = newVerts([id1,id2],:);
         plot( pt(:,1), pt(:,2),'r','LineWidth',3);
+    end
+end
+
+% for presentation
+if (TO_PRESENT)
+    figure;
+    triplot( tri,verts(:,1),verts(:,2),'b');
+    title({'Terminal (Blue), Junction (Red), Sleeve (White) Triangles',
+           'Cordal Axis (Green)' });
+    hold on;
+    axis equal;
+    
+    numJunTri = size(junTri,1);
+    numTerTri = size(terTri,1);
+    
+    % junction triangle, red
+    for i = 1 : numJunTri
+        idx = junTri(i,:);
+        v = verts ( idx, : );
+        fill(v(:,1),v(:,2),'r');
+        alpha(0.5);
+    end
+    
+    % terminal triangle, blue
+    for i = 1 : numTerTri
+        idx = terTri(i,:);
+        v = verts ( idx, : );
+        fill(v(:,1),v(:,2),'b');
+        alpha(0.5);
+    end    
+    
+    for i=1:length(chords)
+        chord = chords(i);
+        chord = chord{1};
+        plot(chord(:,1),chord(:,2),'r', 'LineWidth', 2);
+        if (DRAW_PRUNED_CHORDS)
+            prunedIdx = chord ( :, 3 );
+            prunedChord = chord ( prunedIdx ~= -1, :);
+
+            plot(prunedChord(:,1),prunedChord(:,2),'g', 'LineWidth', 2);
+        end
     end
 end

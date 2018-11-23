@@ -51,9 +51,9 @@ verts=[];
 %  hold on;
 %  pause(0.01);
 % end
-figure;
-plot(tmp(:,2), tmp(:,1), '.r', 'LineWidth', 2); hold on;
-plot(tmp(:,2), tmp(:,1), 'b', 'LineWidth', 1);
+% figure;
+% plot(tmp(:,2), tmp(:,1), '.r', 'LineWidth', 2); hold on;
+% plot(tmp(:,2), tmp(:,1), 'b', 'LineWidth', 1);
 % //==== debug =================//
 
 % ==================================

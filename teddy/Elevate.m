@@ -1,31 +1,16 @@
 function [verts3D, tri3D, figHandle] = Elevate ( numSeg, elevScale, verts, newVerts, newTri, chordSpine, entryRow,entryCol, DEBUG )
-if (DEBUG)
-    DEBUG_DRAW_ELEVATION = true;
-    DEBUG_DRAW_CONNECTED_VERTS = true;
-    DEBUG_DRAW_ARC = true;
-    DEBUG_DRAW_3D_TRI_REALTIME = true;
-    DEBUG_DRAW_3D_TRI = true;
-    DEBUG_DRAW_FLAT = true;
-    DEBUG_DRAW_LABEL = true;
-    DEBUG_NEW_FIGURE = true;
-else
-    DEBUG_DRAW_ELEVATION = false;
-    DEBUG_DRAW_CONNECTED_VERTS = false;
-    DEBUG_DRAW_ARC = false;
-    DEBUG_DRAW_3D_TRI_REALTIME = false;
-    DEBUG_DRAW_3D_TRI = true;
-    DEBUG_DRAW_FLAT = false;
-    DEBUG_DRAW_LABEL = false;
-    DEBUG_NEW_FIGURE = false;
-    
-end
 
+    DEBUG_DRAW_ELEVATION = DEBUG;
+    DEBUG_DRAW_CONNECTED_VERTS = DEBUG;
+    DEBUG_DRAW_ARC = DEBUG;
+    DEBUG_DRAW_3D_TRI_REALTIME = DEBUG;    
+    DEBUG_DRAW_FLAT = DEBUG;
+    
+    DEBUG_DRAW_LABEL = false;    
+    DEBUG_DRAW_3D_TRI = true;
 
 % draw triPlot in 3D
-
-if (DEBUG_NEW_FIGURE)
-    figure;
-end
+figure;
 
 tmpZ = zeros ( size ( newVerts, 1 ), 1 );
 verts3D = [ newVerts , tmpZ ];

@@ -14,7 +14,9 @@ tri = DT.ConnectivityList;
 tri = tri ( insideIdx, :);
 
 % //==== debug =================//
-figure;
-triplot(tri,verts(:,1),verts(:,2));
-axis equal;
+% figure;
+% 
+% triplot(tri,verts(:,1),verts(:,2));
+% title('Delaunay Triangulation');
+% axis equal;
 % //==== debug =================//
