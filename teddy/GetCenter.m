@@ -1,3 +1,8 @@
+% ============================================
+% Author: Alex Chen
+% email: alextpf@gmail.com
+% 2014
+% ============================================
 function c = GetCenter ( curTri, verts )
 
 v1 = verts ( curTri (1), : );

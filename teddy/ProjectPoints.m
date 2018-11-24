@@ -1,3 +1,8 @@
+% ============================================
+% Author: Alex Chen
+% email: alextpf@gmail.com
+% 2014
+% ============================================
 function [projPts,dist] = ProjectPoints(pts,starTri,verts)
 % project pts onto star
 DEBUG_DRAW_PROJ = false;

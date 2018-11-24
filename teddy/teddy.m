@@ -1,6 +1,8 @@
-Author: Alex Chen
-email: alextpf@gmail.com
-
+% ============================================
+% Author: Alex Chen
+% email: alextpf@gmail.com
+% 2014
+% ============================================
 clear all;
 close all;
 clc;
@@ -8,13 +10,13 @@ clc;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Program parameters
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-HAND_DRAW = false; % true: hand draw; false: load from binary image
+HAND_DRAW = true; % true: hand draw; false: load from binary image
 fileName = '../octopus-filled.png'; % if HAND_DRAW = false, we have to proide file name 
 
 DEBUG_DRAW_VERT_LABEL = true; % debug flag: draw vertex index
 DEBUG_LOAD_FROM_FILE = false; % load the triangulated graph from file
 DEBUG_LOAD_NEW_TRI_FROM_FILE = false; % load the chordal axis from file
-FILE_NAME = 'octopus';
+FILE_NAME = 'shape01';
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Free hand draw

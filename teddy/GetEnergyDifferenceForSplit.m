@@ -1,3 +1,8 @@
+% ============================================
+% Author: Alex Chen
+% email: alextpf@gmail.com
+% 2014
+% ============================================
 function EDif = GetEnergyDifferenceForSplit( oldTri, newTri, verts )
 
 Crep = 0.0001;

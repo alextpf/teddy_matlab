@@ -1,3 +1,8 @@
+% ============================================
+% Author: Alex Chen
+% email: alextpf@gmail.com
+% 2014
+% ============================================
 function [center, curTri, v1v2Idx, nbhrIdx] = FindAdjTriCenter ( res, adjIdx, triType, verts )
 
 nbhrIdx = res ( adjIdx, : );

@@ -1,3 +1,8 @@
+% ============================================
+% Author: Alex Chen
+% email: alextpf@gmail.com
+% 2014
+% ============================================
 function edgeStruct = ContructEdgeStrcut(verts,tri)
 
 DEBUG_EDGE_NBHR = false;

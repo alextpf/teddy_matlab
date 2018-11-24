@@ -1,3 +1,8 @@
+% ============================================
+% Author: Alex Chen
+% email: alextpf@gmail.com
+% 2014
+% ============================================
 function sameOrder = CheckOrder ( testTri, srcTri )
 res = ismember(srcTri,testTri(1));
 idx = find(res == 1);

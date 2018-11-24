@@ -1,3 +1,8 @@
+% ============================================
+% Author: Alex Chen
+% email: alextpf@gmail.com
+% 2014
+% ============================================
 function Write2Stl(verts,tri,FILE_NAME)
 fid = fopen(FILE_NAME,'w');
 

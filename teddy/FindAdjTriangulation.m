@@ -1,3 +1,8 @@
+% ============================================
+% Author: Alex Chen
+% email: alextpf@gmail.com
+% 2014
+% ============================================
 function [ nextCenter, tip, tipIdx, tipSide, tipSideIdx, single, singleIdx ] = FindAdjTriangulation ( sleTriEdge, verts, curTri, selAdj, nbhrIdx )
 
 edgeIdx = sleTriEdge ( selAdj, : );
