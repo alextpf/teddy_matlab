@@ -5,7 +5,7 @@ clc;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Program parameters
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-HAND_DRAW = false; % true: hand draw; false: load from binary image
+HAND_DRAW = true; % true: hand draw; false: load from binary image
 fileName = '../lizard-filled.png'; % if HAND_DRAW = false, we have to proide file name 
 
 DEBUG_DRAW_VERT_LABEL = true; % debug flag: draw vertex index
