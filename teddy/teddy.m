@@ -1,3 +1,8 @@
+% ============================================
+% Author: Alex Chen
+% email: alextpf@gmail.com
+% 2014
+% ============================================
 clear all;
 close all;
 clc;
@@ -7,11 +12,10 @@ clc;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 HAND_DRAW = true; % true: hand draw; false: load from binary image
 fileName = '../lizard-filled.png'; % if HAND_DRAW = false, we have to proide file name 
-
 DEBUG_DRAW_VERT_LABEL = true; % debug flag: draw vertex index
 DEBUG_LOAD_FROM_FILE = false; % load the triangulated graph from file
 DEBUG_LOAD_NEW_TRI_FROM_FILE = false; % load the chordal axis from file
-FILE_NAME = 'lizard';
+FILE_NAME = 'shape01';
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Free hand draw
@@ -60,7 +64,7 @@ end % if (~DEBUG_LOAD_NEW_TRI_FROM_FILE)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 1. Create chordal axis
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-DEBUG = true;
+DEBUG = false;
 
 FILE_NAME2 = sprintf('%s-new-tri',FILE_NAME);
 if (~DEBUG_LOAD_NEW_TRI_FROM_FILE)

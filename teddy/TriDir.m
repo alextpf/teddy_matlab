@@ -1,3 +1,8 @@
+% ============================================
+% Author: Alex Chen
+% email: alextpf@gmail.com
+% 2014
+% ============================================
 function dir = TriDir (v1,v2,v3,verts)
 
 % use normal to check which direction to use

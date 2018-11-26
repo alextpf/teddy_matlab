@@ -1,3 +1,8 @@
+% ============================================
+% Author: Alex Chen
+% email: alextpf@gmail.com
+% 2014
+% ============================================
 function OptimizeMesh(verts,tri)
 edgeStruct = ContructEdgeStrcut(verts,tri);
 

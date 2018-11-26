@@ -1,3 +1,8 @@
+% ============================================
+% Author: Alex Chen
+% email: alextpf@gmail.com
+% 2014
+% ============================================
 function drawCircle ( center, v )
     hold on; % draw on the current figure
     pi = 3.1415926;

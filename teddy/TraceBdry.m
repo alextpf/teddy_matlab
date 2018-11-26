@@ -1,3 +1,8 @@
+% ============================================
+% Author: Alex Chen
+% email: alextpf@gmail.com
+% 2014
+% ============================================
 function verts = TraceBdry(fileName)
 % ==================================
 % pre-requisite: input image has to be a black and white image, and single channel ( not rbg )

@@ -1,3 +1,8 @@
+% ============================================
+% Author: Alex Chen
+% email: alextpf@gmail.com
+% 2014
+% ============================================
 function EDif = GetEnergyDifferenceForCollapse( dist, starTri, newStarTri, verts )
 Crep = 0.0001;
 K = 0.01;

@@ -1,3 +1,8 @@
+% ============================================
+% Author: Alex Chen
+% email: alextpf@gmail.com
+% 2014
+% ============================================
 function ok = checkDihedralAngle(tri,verts,MAX_ANGLE)
 THRESH = cos(MAX_ANGLE * 3.1415926/180);
 

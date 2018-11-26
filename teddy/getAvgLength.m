@@ -1,3 +1,8 @@
+% ============================================
+% Author: Alex Chen
+% email: alextpf@gmail.com
+% 2014
+% ============================================
 function [ avgLen, vecLen ] = getAvgLength ( curIdx, outerIdx, verts )
 pivot = verts ( curIdx, 1:2 );
 outers = verts ( outerIdx, 1:2 );
