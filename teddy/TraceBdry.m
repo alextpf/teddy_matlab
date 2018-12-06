@@ -11,16 +11,16 @@ function verts = TraceBdry(fileName)
 % Threshold and invert
 img = imread(fileName);
 % 
-% figure;
-% imshow(img);
+figure;
+imshow(img);
 
 tmp = img;
-tmp(find(img > 0 ))=0;
-tmp(find(img == 0 ))=255;
+tmp(find(img > 20 ))=0;
+tmp(find(img <= 20 ))=255;
 img = tmp;
 
-% figure;
-% imshow(img);
+figure;
+imshow(img);
 
 % ==================================
 % trace bdry
@@ -43,7 +43,7 @@ verts = [verts(:,2),verts(:,1)];
 
 % ==================================
 % down-sample
-DOWN_RATE = 4;
+DOWN_RATE = 2;
 
 tmp = verts(1:DOWN_RATE:end,:);
 
@@ -63,7 +63,7 @@ verts=[];
 
 % ==================================
 % sample vertex
-ERR = 0.02;
+ERR = 0.01;
 LEN_SQR = ERR * ERR;
 USE_ANGLE = false;
 

@@ -10,12 +10,12 @@ clc;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Program parameters
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-HAND_DRAW = true; % true: hand draw; false: load from binary image
-fileName = '../lizard-filled.png'; % if HAND_DRAW = false, we have to proide file name 
+HAND_DRAW = false; % true: hand draw; false: load from binary image
+fileName = '../rotary-filled.png'; % if HAND_DRAW = false, we have to proide file name 
 DEBUG_DRAW_VERT_LABEL = true; % debug flag: draw vertex index
 DEBUG_LOAD_FROM_FILE = false; % load the triangulated graph from file
 DEBUG_LOAD_NEW_TRI_FROM_FILE = false; % load the chordal axis from file
-FILE_NAME = 'shape01';
+FILE_NAME = 'rotary';
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Free hand draw
@@ -83,7 +83,7 @@ DEBUG = false;
 numSeg = 10;
 
 % elevation scale
-elevScale = 1;
+elevScale = 1.3;
 
 [ verts3D, tri3D, figHandle] = Elevate ( numSeg, elevScale, verts, newVerts, newTri, chordSpine, entryRow,entryCol, DEBUG );
 
