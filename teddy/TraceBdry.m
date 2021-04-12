@@ -13,8 +13,12 @@ img = imread(fileName);
 % 
 figure;
 imshow(img);
+if (size(img,3) ~= 1)
+    img = img(:,:,1);
+end
 
 tmp = img;
+
 tmp(find(img > 20 ))=0;
 tmp(find(img <= 20 ))=255;
 img = tmp;
