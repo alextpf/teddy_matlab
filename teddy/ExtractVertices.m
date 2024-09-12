@@ -3,15 +3,8 @@
 % email: alextpf@gmail.com
 % 2014
 % ============================================
-function [verts, figHangle] = FreeHandDrawing (  )
-
-  
-figHangle = figure('units','normalized','outerposition',[0 0 1 1]); % maximize the figure
-axis equal;
-
-h = imfreehand(gca);
-
-pos = getPosition(h);
+function verts = ExtractVertices (roi)
+pos=roi.Position;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Extract region
@@ -39,3 +32,4 @@ verts=[verts;verts(1,:)];
 % plot(x,y);
 % axis equal;
 % 
+end

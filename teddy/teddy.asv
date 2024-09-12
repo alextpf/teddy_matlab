@@ -26,10 +26,10 @@ DEBUG_WRITE_STL = false;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if (~DEBUG_LOAD_NEW_TRI_FROM_FILE)
     if (~DEBUG_LOAD_FROM_FILE)        
-        figure('units','normalized','outerposition',[0 0 1 1]); % maximize the figure
-        axis equal;
-        
-        if (HAND_DRAW)            
+        if (HAND_DRAW)
+            figure('units','normalized','outerposition',[0 0 1 1]); % maximize the figure
+            axis equal;
+            
             % Old API
             % h = imfreehand(gca);
             % pos = getPosition(h);
@@ -39,7 +39,6 @@ if (~DEBUG_LOAD_NEW_TRI_FROM_FILE)
             verts = ExtractVertices(roi);
         else
             % load from img
-            imshow(fileName, 'Parent', gca);
             verts = TraceBdry(fileName);
         end
         
@@ -86,7 +85,7 @@ else
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 2. Elevate the pruned axis
+% 3. Elevate the pruned axis
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % number of segments in an elliptical arc
 numSeg = 10;
@@ -94,11 +93,7 @@ numSeg = 10;
 % elevation scale
 elevScale = 1.3;
 
-% figure;
-% hold on;
-% axis equal;
-DEBUG_ELEVATION=true;
-[ verts3D, tri3D, figHandle] = Elevate ( numSeg, elevScale, verts, newVerts, newTri, chordSpine, entryRow,entryCol, gca, DEBUG_ELEVATION);
+[ verts3D, tri3D, figHandle] = Elevate ( numSeg, elevScale, verts, newVerts, newTri, chordSpine, entryRow,entryCol, DEBUG_ELEVATION);
 if (DEBUG_WRITE_STL)
     % write to *.stl file
     FILE_NAME3 = sprintf('%s.stl',FILE_NAME);
@@ -106,7 +101,7 @@ if (DEBUG_WRITE_STL)
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 3. Optimize the mesh
+% 4. Optimize the mesh
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % OptimizeMesh(verts3D,tri3D);
 

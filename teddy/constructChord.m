@@ -21,7 +21,7 @@ function [ chords, newTri, verts, entryRow,entryCol, chordSpine ] = constructCho
     DRAW_NEW_TRI =          DEBUG; % draw the new triangulation
     DRAW_CHORDAL_AXIS =     DEBUG; % draw the chordal axis
     DRAW_PRUNED_CHORDS =    DEBUG; % draw the pruned chordal axis
-    FILL_TRIANGLUES =       DEBUG; % check if every triangles is filled
+    FILL_TRIANGLUES =       false; %==> This is very expensive. Caution if you turn this on.  check if every triangles is filled
     DEBUG_CHECK_GRAPH =     DEBUG;
     DEBUG_DRAW_VERT_LABEL = DEBUG;
     TO_PRESENT =            DEBUG; % use to generate fancy picture only

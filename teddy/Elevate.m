@@ -3,20 +3,18 @@
 % email: alextpf@gmail.com
 % 2014
 % ============================================
-function [verts3D, tri3D, figHandle] = Elevate ( numSeg, elevScale, verts, newVerts, newTri, chordSpine, entryRow,entryCol, DEBUG )
+function [verts3D, tri3D, figHandle] = Elevate ( numSeg, elevScale, verts, newVerts, newTri, chordSpine, entryRow,entryCol, ax, DEBUG )
 
     DEBUG_DRAW_ELEVATION = DEBUG;
     DEBUG_DRAW_CONNECTED_VERTS = DEBUG;
     DEBUG_DRAW_ARC = DEBUG;
-    DEBUG_DRAW_3D_TRI_REALTIME = DEBUG;    
+    DEBUG_DRAW_3D_TRI_REALTIME = false;    
     DEBUG_DRAW_FLAT = DEBUG;
     
     DEBUG_DRAW_LABEL = false;    
     DEBUG_DRAW_3D_TRI = true;
 
 % draw triPlot in 3D
-figure;
-
 tmpZ = zeros ( size ( newVerts, 1 ), 1 );
 verts3D = [ newVerts , tmpZ ];
 
@@ -24,9 +22,6 @@ if ( DEBUG_DRAW_FLAT )
     trisurf( newTri, verts3D(:,1), verts3D(:,2), verts3D(:,3) );
     alpha(0.2);
 end
-
-hold on;
-axis equal;
 
 if ( DEBUG_DRAW_LABEL )
     for i=1:size(verts3D,1)
