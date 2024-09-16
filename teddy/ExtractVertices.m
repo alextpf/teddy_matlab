@@ -6,6 +6,10 @@
 function verts = ExtractVertices (roi)
 pos=roi.Position;
 
+% Normalize to [0,1]
+maxXY= max(pos(:));
+
+pos = pos./maxXY;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Extract region
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

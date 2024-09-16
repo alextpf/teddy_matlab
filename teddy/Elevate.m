@@ -3,21 +3,25 @@
 % email: alextpf@gmail.com
 % 2014
 % ============================================
-function [verts3D, tri3D, figHandle] = Elevate ( numSeg, elevScale, verts, newVerts, newTri, chordSpine, entryRow,entryCol, ax, DEBUG )
+function [verts3D, tri3D] = Elevate ( numSeg, elevScale, verts, newVerts, newTri, chordSpine, entryRow,entryCol, ax, DEBUG, SHOW_FINAL_MESH )
 
     DEBUG_DRAW_ELEVATION = DEBUG;
     DEBUG_DRAW_CONNECTED_VERTS = DEBUG;
     DEBUG_DRAW_ARC = DEBUG;
-    DEBUG_DRAW_3D_TRI_REALTIME = false;    
-    DEBUG_DRAW_FLAT = DEBUG;
-    
+    DEBUG_DRAW_3D_TRI_REALTIME = false;        
+    DEBUG_DRAW_FLAT = DEBUG;    
     DEBUG_DRAW_LABEL = false;    
-    DEBUG_DRAW_3D_TRI = true;
 
 % draw triPlot in 3D
 tmpZ = zeros ( size ( newVerts, 1 ), 1 );
 verts3D = [ newVerts , tmpZ ];
 
+if (DEBUG_DRAW_FLAT | DEBUG_DRAW_LABEL | DEBUG_DRAW_ELEVATION | DEBUG_DRAW_CONNECTED_VERTS | DEBUG_DRAW_ARC | DEBUG_DRAW_3D_TRI_REALTIME )
+    figure;
+    hold on;
+    axis equal;
+end
+    
 if ( DEBUG_DRAW_FLAT )
     trisurf( newTri, verts3D(:,1), verts3D(:,2), verts3D(:,3) );
     alpha(0.2);
@@ -499,17 +503,19 @@ for i=1:length(chordSpine)
 end % for i=1:length(chordSpine)
 
 
-if (DEBUG_DRAW_3D_TRI)
+if (SHOW_FINAL_MESH)
     %figHandle = figure;
     % erase earlier plot    
-    figHandle = clf;
+    % figHandle = clf;
     
-    trisurf( tri3D, verts3D(:,1), verts3D(:,2), verts3D(:,3) );                
-    alpha(0.2);
+    trisurf( tri3D, verts3D(:,1), verts3D(:,2), verts3D(:,3), 'Parent', ax );  
+%     grid(ax,'on');
+    alpha(ax, 0.2);
+    axis(ax,'equal');
+    
     %shading interp;                   % other options are shading face / shading faceted
-    shading faceted;
-    
-    colormap summer;
+    shading(ax,'faceted');    
+    colormap(ax,'summer');
     %vrml(figHandle, 'out.wrl');
 end
-axis equal;
+

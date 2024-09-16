@@ -26,7 +26,17 @@ img = tmp;
 % ==================================
 % trace bdry
 B = bwboundaries(img);
-verts = B{1};
+% Choose the one that has the longest length
+maxLength = 0;
+maxIdx = 0;
+for i=1:length(B)
+    if (length(B{i}) > maxLength)
+        maxLength = length(B{i});
+        maxIdx = i;
+    end
+end
+
+verts = B{maxIdx};
 
 % ==================================
 % normalize

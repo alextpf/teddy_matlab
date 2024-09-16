@@ -12,18 +12,18 @@ function [ chords, newTri, verts, entryRow,entryCol, chordSpine ] = constructCho
     % draw 3 kinds of triangle: terminal (Blue), junction (Red), sleeve (White). 
     % Use this flag to check if the 1st step of classifying the triangle
     % correctly
-    DRAW_THREE_KINDS_TRI =  DEBUG;
-    DEBUG_DRAW_CIRCLE =     DEBUG; % debug flag: draw circles
-    DEBUG_DRAW_CHORD =      DEBUG; % debug flag: draw chrodal axis
-    DRAW_CURR_JUN_TRI =     DEBUG;
-    DEBUG_DRAW_NEW_TRI =    DEBUG;
-    DEBUG_SHOW_NEW_TRI =    DEBUG;
-    DRAW_NEW_TRI =          DEBUG; % draw the new triangulation
-    DRAW_CHORDAL_AXIS =     DEBUG; % draw the chordal axis
-    DRAW_PRUNED_CHORDS =    DEBUG; % draw the pruned chordal axis
+    DRAW_THREE_KINDS_TRI =  false;
+    DEBUG_DRAW_CIRCLE =     false; % debug flag: draw circles
+    DEBUG_DRAW_CHORD =      false; % debug flag: draw chrodal axis
+    DRAW_CURR_JUN_TRI =     false;
+    DEBUG_DRAW_NEW_TRI =    false;
+    DEBUG_SHOW_NEW_TRI =    false;
+    DRAW_NEW_TRI =          false; % draw the new triangulation
+    DRAW_CHORDAL_AXIS =     false; % draw the chordal axis
+    DRAW_PRUNED_CHORDS =    false; % draw the pruned chordal axis
     FILL_TRIANGLUES =       false; %==> This is very expensive. Caution if you turn this on.  check if every triangles is filled
-    DEBUG_CHECK_GRAPH =     DEBUG;
-    DEBUG_DRAW_VERT_LABEL = DEBUG;
+    DEBUG_CHECK_GRAPH =     false;
+    DEBUG_DRAW_VERT_LABEL = false;
     TO_PRESENT =            DEBUG; % use to generate fancy picture only
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -40,6 +40,11 @@ triDif ( triDif ~= 0 ) = 1;
 
 triType = sum ( triDif, 2); % sum the row; 0: junction tri, 1: sleeve tri, 2: terminal tri
  
+%%%%%%%%%%%%%%%%%%%%%
+% Declare earlier to prevent exception when early bailout
+chordSpine = [];
+entryRow = [];
+entryCol = [];
 %%%%%%%%%%%%%%%%%%%%%
 chords = []; % a collection of 'chorAxis'
 chordAxis = []; % first 2 columns denote (x,y) of the vertex, the 3rd column denotes the idx in verts
@@ -442,12 +447,12 @@ for i = 1:size ( terTri, 1 )
                 keepGoinInBranch = false;
             else          
                 %  error
-                disp('error');
+                disp("ROI region too small, or not having enough edges");
                 return;
             end
         elseif ( length ( adj ) > 1 )
           %  error
-          disp('error');
+          disp("ROI region too small, or not having enough edges");
           return;
         end % if ( length ( adj ) == 1 ); find the adjacent sleeve tri
     end % while ( keepGoinInBranch ); while going in the current branch
@@ -884,10 +889,6 @@ end
 % 2. convert chordal spine to graph structure
 %    use spare matrix
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-chordSpine = [];
-entryRow = [];
-entryCol = [];
 
 for i=1:length(chords)
     chord = chords(i);

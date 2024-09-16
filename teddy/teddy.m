@@ -15,7 +15,8 @@ fileName = '../son.png'; % if HAND_DRAW = false, we have to proide file name
 DEBUG_DRAW_VERT_LABEL = false; % debug flag: draw vertex index
 DEBUG_LOAD_FROM_FILE = false; % load the triangulated graph from file
 DEBUG_LOAD_NEW_TRI_FROM_FILE = false; % load the chordal axis from file
-FILE_NAME = 'son_drawing';
+FILE_NAME = 'tmp_verts_bug';
+SHOW_FINAL_MESH = true;
 
 % Advanced debug flags
 DEBUG_CHORDAL_AXIS = false;
@@ -78,8 +79,13 @@ end % if (~DEBUG_LOAD_NEW_TRI_FROM_FILE)
 % 1. Create chordal axis
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FILE_NAME2 = sprintf('%s-new-tri',FILE_NAME);
+DEBUG_CHORDAL_AXIS = true;
+
 if (~DEBUG_LOAD_NEW_TRI_FROM_FILE)
     [ chords, newTri, newVerts, entryRow, entryCol, chordSpine ] = constructChord ( tri, verts, DEBUG_CHORDAL_AXIS );
+    if (length(entryRow) < 1 || length(entryCol) < 1 )
+        return;
+    end
     save (FILE_NAME2,'tri','verts','chords','newTri','newVerts', 'entryRow', 'entryCol', 'chordSpine');
 else
     load (FILE_NAME2,'tri','verts','chords','newTri','newVerts', 'entryRow', 'entryCol', 'chordSpine');
@@ -92,13 +98,14 @@ end
 numSeg = 10;
 
 % elevation scale
-elevScale = 1.3;
+% elevScale = 1.3;
+elevScale = 3;
 
-% figure;
-% hold on;
-% axis equal;
-DEBUG_ELEVATION=true;
-[ verts3D, tri3D, figHandle] = Elevate ( numSeg, elevScale, verts, newVerts, newTri, chordSpine, entryRow,entryCol, gca, DEBUG_ELEVATION);
+if (SHOW_FINAL_MESH)
+    figure;
+end
+
+[ verts3D, tri3D] = Elevate ( numSeg, elevScale, verts, newVerts, newTri, chordSpine, entryRow,entryCol, gca, DEBUG_ELEVATION, SHOW_FINAL_MESH);
 if (DEBUG_WRITE_STL)
     % write to *.stl file
     FILE_NAME3 = sprintf('%s.stl',FILE_NAME);
