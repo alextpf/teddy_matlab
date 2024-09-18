@@ -24,7 +24,9 @@ function [ chords, newTri, verts, entryRow,entryCol, chordSpine ] = constructCho
     FILL_TRIANGLUES =       false; %==> This is very expensive. Caution if you turn this on.  check if every triangles is filled
     DEBUG_CHECK_GRAPH =     false;
     DEBUG_DRAW_VERT_LABEL = false;
+    
     TO_PRESENT =            DEBUG; % use to generate fancy picture only
+    
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Find 3 kinds of tris: 
@@ -1091,7 +1093,7 @@ if (TO_PRESENT)
     for i=1:length(chords)
         chord = chords(i);
         chord = chord{1};
-        plot(chord(:,1),chord(:,2),'r', 'LineWidth', 2);
+        plot(chord(:,1),chord(:,2),'g', 'LineWidth', 2);
         if (DRAW_PRUNED_CHORDS)
             prunedIdx = chord ( :, 3 );
             prunedChord = chord ( prunedIdx ~= -1, :);
