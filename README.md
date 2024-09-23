@@ -6,7 +6,8 @@ This repo implements Dr. Igarashi's ["Teddy"](https://www-ui.is.s.u-tokyo.ac.jp/
   - Run the script `teddy.m`. Read the script to modify the flags, for example, whether to hand draw the contour, or to feed in a binary image with pre-drawn contour.
   - Run the app `teddy_app.mlapp` to run the app with an UI.
 2. If you don't have Matlab: 
-  - Under executable folder, download teddy_app.exe and execute it (double click).
+  - Under ["teddy/Teddy_matlab/for_redistribution" folder](https://github.com/alextpf/teddy_matlab/tree/master/teddy/Teddy_matlab/for_redistribution), there's a MyAppInstaller_web.exe. If you already cloned the repos, you should have it under your local folder, but if you don't know how to clone the repos, simply [download the exe](https://github.com/alextpf/teddy_matlab/blob/master/teddy/Teddy_matlab/for_redistribution/MyAppInstaller_web.exe) from github website. 
+  - Execute the exe by double clicking on it.
   - It will download the necessary contents from Matlab website (Matlab Runtime), which will take some time (a few hundred MB).
   - Once the contents has been downloaded and installed, you can then run the executable.
   - Currently, only Windows is supported.
