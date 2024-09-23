@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration file="D:\proj\teddy_proj\teddy\Teddy_matlab.prj" location="D:\proj\teddy_proj\teddy" name="Teddy_matlab" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration build-checksum="15471083" file="D:\proj\teddy_matlab\teddy\Teddy_matlab.prj" location="D:\proj\teddy_matlab\teddy" name="Teddy_matlab" preferred-package-location="D:\proj\teddy_matlab\teddy\Teddy_matlab\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>Teddy_matlab</param.appname>
     <param.icon />
     <param.icons />
@@ -7,9 +7,9 @@
     <param.authnamewatermark>Alex Chen</param.authnamewatermark>
     <param.email>makerdaddiy@gmail.com</param.email>
     <param.company />
-    <param.summary />
-    <param.description />
-    <param.screenshot />
+    <param.summary>Dr. Igarashi's "Teddy" algorithm implementation in Matlab</param.summary>
+    <param.description>This app implements Dr. Igarashi's "Teddy" published in SIGGRAPH 1999, by Maltab. However, it only implements the "inflation" feature, without other functionalities. That is, the input has to be a single closed contour with "sphere topololy".</param.description>
+    <param.screenshot>E:\Youtube_vid\teddy\app thumb.jpg</param.screenshot>
     <param.guid />
     <param.installpath.string>\Teddy_matlab\</param.installpath.string>
     <param.installpath.combo>option.installpath.programfiles</param.installpath.combo>
@@ -47,9 +47,6 @@
       <param.icons />
       <param.version />
       <param.company />
-      <param.summary />
-      <param.description />
-      <param.screenshot />
       <param.guid />
       <param.installpath.string />
       <param.installpath.combo />
@@ -78,7 +75,7 @@
       <param.example />
     </unset>
     <fileset.main>
-      <file>${PROJECT_ROOT}\teddy.m</file>
+      <file>${PROJECT_ROOT}\teddy_app.mlapp</file>
     </fileset.main>
     <fileset.resources />
     <fileset.package />
@@ -87,13 +84,12 @@
       <file>${PROJECT_ROOT}\constructChord.m</file>
       <file>${PROJECT_ROOT}\drawCircle.m</file>
       <file>${PROJECT_ROOT}\Elevate.m</file>
+      <file>${PROJECT_ROOT}\ExtractVertices.m</file>
       <file>${PROJECT_ROOT}\FindAdjTri.m</file>
       <file>${PROJECT_ROOT}\FindAdjTriangulation.m</file>
       <file>${PROJECT_ROOT}\FindAdjTriCenter.m</file>
-      <file>${PROJECT_ROOT}\FreeHandDrawing.m</file>
       <file>${PROJECT_ROOT}\getAvgLength.m</file>
       <file>${PROJECT_ROOT}\GetCenter.m</file>
-      <file>${PROJECT_ROOT}\son_drawing.mat</file>
       <file>${PROJECT_ROOT}\sortPoly.m</file>
       <file>${PROJECT_ROOT}\TraceBdry.m</file>
       <file>${PROJECT_ROOT}\Triangulation.m</file>
@@ -101,9 +97,9 @@
       <file>${PROJECT_ROOT}\Write2Stl.m</file>
     </fileset.depfun>
     <build-deliverables>
-      <file location="${PROJECT_ROOT}\Teddy_matlab\for_testing" name="splash.png" optional="false">D:\proj\teddy_proj\teddy\Teddy_matlab\for_testing\splash.png</file>
-      <file location="${PROJECT_ROOT}\Teddy_matlab\for_testing" name="readme.txt" optional="true">D:\proj\teddy_proj\teddy\Teddy_matlab\for_testing\readme.txt</file>
-      <file location="${PROJECT_ROOT}\Teddy_matlab\for_testing" name="Teddy_matlab.exe" optional="false">D:\proj\teddy_proj\teddy\Teddy_matlab\for_testing\Teddy_matlab.exe</file>
+      <file location="${PROJECT_ROOT}\Teddy_matlab\for_testing" name="Teddy_matlab.exe" optional="false">D:\proj\teddy_matlab\teddy\Teddy_matlab\for_testing\Teddy_matlab.exe</file>
+      <file location="${PROJECT_ROOT}\Teddy_matlab\for_testing" name="readme.txt" optional="true">D:\proj\teddy_matlab\teddy\Teddy_matlab\for_testing\readme.txt</file>
+      <file location="${PROJECT_ROOT}\Teddy_matlab\for_testing" name="splash.png" optional="false">D:\proj\teddy_matlab\teddy\Teddy_matlab\for_testing\splash.png</file>
     </build-deliverables>
     <workflow />
     <matlab>

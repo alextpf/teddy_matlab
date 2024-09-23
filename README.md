@@ -17,6 +17,7 @@ This software implements the "inflation" of a single closed contour from 2D to 3
 2. Generate 3D model
 3. Export *.stl (for 3D print)
 
+
 ### Sketch 
 Te sketch step has 3 modes: 
 1. Plain sketch: 
@@ -27,9 +28,13 @@ Te sketch step has 3 modes:
 2. Load an overlay image and sketch:
   - The user can choose to load an image as the background, and then sketch on top of the background image. The sketch process is exactly the same as the "Plain sketch" mode, and the background image is to assist the user to trace the feature/outline of the image.
 3. Load a "binary" image: 
- - The user may prepare a "binary" (i.e. black and white, with black content and white background) image by usi other image editing so 
+ - The user may prepare a "binary" (i.e. black and white) image by using other image editing software (e.g. GIMP, Photoshop...etc).
+ - The binary image has to be with black content and white background.
+ 
 ### Generate 3D Model
 This button generate the 3D model from the scratch or the binary image. 
-   
+
+### Export STL
+This button exports the generate 3D model to a *.stl file, for 3D printing purpose.   
 
 
