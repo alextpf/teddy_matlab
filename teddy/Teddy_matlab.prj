@@ -1,8 +1,13 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
   <configuration build-checksum="15471083" file="D:\proj\teddy_matlab\teddy\Teddy_matlab.prj" location="D:\proj\teddy_matlab\teddy" name="Teddy_matlab" preferred-package-location="D:\proj\teddy_matlab\teddy\Teddy_matlab\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>Teddy_matlab</param.appname>
-    <param.icon />
-    <param.icons />
+    <param.icon>${PROJECT_ROOT}\Teddy_matlab_resources\icon.ico</param.icon>
+    <param.icons>
+      <file>${PROJECT_ROOT}\Teddy_matlab_resources\icon_48.png</file>
+      <file>${PROJECT_ROOT}\Teddy_matlab_resources\icon_32.png</file>
+      <file>${PROJECT_ROOT}\Teddy_matlab_resources\icon_24.png</file>
+      <file>${PROJECT_ROOT}\Teddy_matlab_resources\icon_16.png</file>
+    </param.icons>
     <param.version>1.0</param.version>
     <param.authnamewatermark>Alex Chen</param.authnamewatermark>
     <param.email>makerdaddiy@gmail.com</param.email>
@@ -43,8 +48,6 @@
 	 -?  print help on how to use the application 
 	 input arguments</param.help.text>
     <unset>
-      <param.icon />
-      <param.icons />
       <param.version />
       <param.company />
       <param.guid />
