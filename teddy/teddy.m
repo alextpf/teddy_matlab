@@ -105,6 +105,7 @@ if (SHOW_FINAL_MESH)
 end
 
 [ verts3D, tri3D] = Elevate ( numSeg, elevScale, verts, newVerts, newTri, chordSpine, entryRow,entryCol, gca, DEBUG_ELEVATION, SHOW_FINAL_MESH);
+
 if (DEBUG_WRITE_STL)
     % write to *.stl file
     FILE_NAME3 = sprintf('%s.stl',FILE_NAME);

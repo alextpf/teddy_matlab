@@ -54,7 +54,7 @@ verts = [verts(:,2),verts(:,1)];
 
 % ==================================
 % down-sample
-DOWN_RATE = 2;
+DOWN_RATE = 64;
 
 tmp = verts(1:DOWN_RATE:end,:);
 
@@ -132,6 +132,6 @@ verts=[verts;verts(1,:)];
 % 
 % //==== debug =================//
 % figure;
-% plot(verts(:,2), verts(:,1), '.r', 'LineWidth', 2); hold on;
-% plot(verts(:,2), verts(:,1), 'b', 'LineWidth', 1);
+% plot(verts(:,1), -verts(:,2), '-o', 'MarkerSize',10,'MarkerFaceColor','g', 'LineWidth',2, 'MarkerEdgeColor','r'); 
+% axis equal
 % //==== debug =================//
