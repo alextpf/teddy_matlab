@@ -20,22 +20,20 @@ This software implements the "inflation" of a single closed contour from 2D to 3
 
 
 ### Sketch 
-Te sketch step has 3 modes: 
-1. Plain sketch: 
-  - it allows the user to freely draw a closed contour on a blank canvas. 
-  - The user can use press the left mouse button, move the mouse, and the program will trace and draw the path the mouse undergoes. 
-  - Once the left mouse button is released, it automatically close the contour by connecting the last point before the button is release and the initial point.
-  - Once the contour is drawn, several "way points" are automatically generated. The user may manually drag and move those way points to change the shape of the contour. The user may as well add extra way points by right click when the cursor is on the contour.
+The sketch step has 3 modes:
+1. Plain sketch:
+  - it allows the user to draw a closed contour on a blank canvas freely.
+  - The user can press the left mouse button, and move the mouse, and the program will trace and draw the path the mouse undergoes.
+  - Once the left mouse button is released, it automatically closes the contour by connecting the last point before the button is released and the initial point.
+  - Once the contour is drawn, several "waypoints" are automatically generated. The user may manually drag and move those waypoints to change the shape of the contour. The user may as well add extra waypoints by right-clicking when the cursor is on the contour.
 2. Load an overlay image and sketch:
-  - The user can choose to load an image as the background, and then sketch on top of the background image. The sketch process is exactly the same as the "Plain sketch" mode, and the background image is to assist the user to trace the feature/outline of the image.
-3. Load a "binary" image: 
- - The user may prepare a "binary" (i.e. black and white) image by using other image editing software (e.g. GIMP, Photoshop...etc).
- - The binary image has to be with black content and white background.
- 
+  - The user can choose to load an image as the background, and then sketch on top of the background image. The sketch process is the same as the "Plain sketch" mode, and the background image assists the user in tracing the feature/outline of the image.
+3. Load a "binary" image:
+  - The user may prepare a "binary" (i.e. black and white) image by using other image editing software (e.g. GIMP, Photoshop...etc).
+  - The binary image has to have black content and a white background.
+
 ### Generate 3D Model
-This button generate the 3D model from the scratch or the binary image. 
+This button generates the 3D model from the sketch or the binary image.
 
 ### Export STL
-This button exports the generate 3D model to a *.stl file, for 3D printing purpose.   
-
-
+This button exports the generated 3D model to a *.stl file, for 3D printing purposes.
