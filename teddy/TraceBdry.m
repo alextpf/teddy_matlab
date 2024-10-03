@@ -54,7 +54,7 @@ verts = [verts(:,2),verts(:,1)];
 
 % ==================================
 % down-sample
-DOWN_RATE = 64;
+DOWN_RATE = 2;
 
 tmp = verts(1:DOWN_RATE:end,:);
 
